@@ -89,3 +89,10 @@
 - Exact eleven-condition inventory, primary Table1/2 targets, separate additional Table4 reconstruction-FID interpretation, preprocessing/masking and metric-specific sample counts are frozen in reproduction/frozen-protocol.md and targets.json before full runs. Table4 does not explicitly identify training checkpoint or a separate sample count; use released evaluator pairing against all5000 GT images and report that limitation.
 - Reuse official FID functions and identical ground-truth statistics across conditions; save each mean/covariance. No feature, estimator or formula change.
 - Pre-final current account/partition/GPU/QoS inventory retained privately at karl-reproduction-results/resource-inventory-pre-final-20261023.json. B1 H100 jobs remain untouched. Final request: one2080Ti,4CPU,16GiB,6h for each released checkpoint; roughly3h/checkpoint estimated from warm smoke timing plus full scoring/I/O/FID.
+
+### Full-split evaluation receipts
+
+- Both final jobs use frozen source fd946c7 and the same complete 5,000-image manifest. No limited sample or smoke output is substituted. Each has one RTX2080Ti,4CPU,16GiB,6h, Vision Shared; owner remains karl-reproduce-20261023. Preflight must pass on the actual allocated node before inference.
+- ImageNet1K checkpoint job2827023: stage /data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_224053-d730d6-fd946c7-code; output /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827023-imagenet; adjacent final-imagenet-2827023.slurm.log.
+- ImageNet100 checkpoint job2827031: stage /data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_224128-cb7936-fd946c7-code; output /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827031-imagenet100; adjacent final-imagenet100-2827031.slurm.log.
+- Exact receipts: karl-reproduction-results/final-submissions.json. Jobs are accepted, not completed; no paper result is inferred yet.

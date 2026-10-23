@@ -1,0 +1,160 @@
+{
+  "paper": "https://arxiv.org/abs/2507.07995",
+  "source_revision": "5c1a5693edf87228f988f363b2acdb7eb826a889",
+  "split": "ImageNet100 validation",
+  "samples": 5000,
+  "resolution": [
+    256,
+    256
+  ],
+  "preprocessing": [
+    "RGB",
+    "CenterCrop(256)",
+    "ToTensor()"
+  ],
+  "resize": false,
+  "normalization": false,
+  "seed": 0,
+  "batch_size": 1,
+  "precision": "float32",
+  "checkpoint_weights": "ema",
+  "primary_checkpoints": [
+    "imagenet/vqgan/quantized",
+    "imagenet100/vqgan/quantized"
+  ],
+  "fixed_budgets": [
+    32,
+    64,
+    96,
+    128,
+    160,
+    192,
+    224,
+    256
+  ],
+  "table1_budgets": [
+    32,
+    128,
+    256
+  ],
+  "fixed_condition_epsilon": 0.0,
+  "fixed_halting_cutoff": 1.0,
+  "adaptive_budget": 256,
+  "adaptive_epsilons": [
+    0.03,
+    0.05,
+    0.09
+  ],
+  "adaptive_halting_cutoff": 0.75,
+  "loss_condition_mapping": "released get_discretized_loss_and_embedding, next greater-or-equal bin",
+  "metric_inputs": "released uint8 clipped PNG, reload RGB and ToTensor",
+  "LPIPS": "alex; source passes [0,1] directly without normalize=True",
+  "SSIM": "torchmetrics StructuralSimilarityIndexMeasure(data_range=1.0), per-image average",
+  "PSNR": "torchmetrics PeakSignalNoiseRatio(data_range=1.0), per-image average; no numerical paper target",
+  "DreamSim": "released dreamsim(pretrained=True), direct image tensors; version absent in source environment",
+  "reconstruction_FID": "pytorch-fid 2048-dimensional default Inception features, generated reconstructions versus paired 5000 ground-truth PNGs",
+  "generation_metrics": "not requested by this reconstruction paper target; not inferred from reconstruction FID",
+  "table1": {
+    "imagenet": {
+      "l1_times_10": [
+        1.1,
+        0.81,
+        0.68
+      ],
+      "lpips": [
+        0.29,
+        0.18,
+        0.14
+      ],
+      "ssim": [
+        0.35,
+        0.44,
+        0.5
+      ],
+      "dreamsim": [
+        0.27,
+        0.14,
+        0.11
+      ]
+    },
+    "imagenet100": {
+      "l1_times_10": [
+        1.13,
+        0.8,
+        0.7
+      ],
+      "lpips": [
+        0.3,
+        0.19,
+        0.14
+      ],
+      "ssim": [
+        0.34,
+        0.44,
+        0.49
+      ],
+      "dreamsim": [
+        0.28,
+        0.16,
+        0.11
+      ]
+    }
+  },
+  "table2": {
+    "imagenet": {
+      "active_tokens": [
+        252.1,
+        225.2,
+        146.2
+      ],
+      "lpips": [
+        0.14,
+        0.16,
+        0.21
+      ],
+      "ssim": [
+        0.5,
+        0.49,
+        0.42
+      ]
+    },
+    "imagenet100": {
+      "active_tokens": [
+        252.9,
+        229.6,
+        152.5
+      ],
+      "lpips": [
+        0.14,
+        0.15,
+        0.21
+      ],
+      "ssim": [
+        0.49,
+        0.47,
+        0.42
+      ]
+    }
+  },
+  "table4": {
+    "fixed_rfid": [
+      28.7,
+      13.6,
+      8.8
+    ],
+    "adaptive_rfid": [
+      9.1,
+      10.3,
+      16.2
+    ],
+    "training_checkpoint_association": "not explicitly labeled in Table 4; report association limitation"
+  },
+  "uncertainty": "No repeated seeds, standard deviations or confidence intervals reported. Two-decimal numbers have \u00b10.005 display rounding and one-decimal token counts \u00b10.05 display rounding, not statistical uncertainty or acceptance thresholds. Report absolute differences without an arbitrary success tolerance.",
+  "adaptations": [
+    "repair old import name via alias for helper reuse",
+    "strictly load all inference EMA parameters; ignore only training GAN-loss module keys",
+    "construct in evaluation stage to skip unused GAN losses and base checkpoint initialization; embedded base-tokenizer EMA weights remain mandatory",
+    "fixed token budget explicitly disables masking because released epsilon=0 still masks",
+    "reuse released PNG save and metric functions without changing formula or inputs"
+  ]
+}

@@ -40,3 +40,12 @@
 - Model inference uses a hardcoded .75 halting probability; configured .55 is not consumed. Fixed-budget mode is not explicitly disabled by epsilon=0 in the model. Resolve this against checkpoint configuration before GPU use.
 - CPU preparation uses a full stage, isolated environment and retained checkpoints/results. No reconstruction, smoke result or GPU allocation has run.
 - Paper has no reported seed variance or confidence intervals. Display rounding alone is ±.005 for two-decimal displayed metrics; this is a precision interval, not a success threshold. Report measured differences without inventing tolerance.
+
+### CPU preparation receipt
+
+- Job `2826204` was accepted and started on `groenig-2`, CPU only, 4 CPUs, 16 GiB, 1 hour maximum, partition `tig-cpu`, account `csail`, QoS `tig-main`.
+- Submission/terminal owner: `karl-reproduce-20261023`; no other worker may resubmit or declare its terminal result.
+- Stage `/data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_214235-78593e-736a2af-code`, source `736a2af`.
+- Output `/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/cpu-prepare-2826204/`; Slurm log is adjacent as `cpu-prepare-2826204.slurm.log`.
+- Earlier stage `20261023_174203-16d9b8-70ca972-code` stopped before submission because archive-mode rsync could not restore retained-directory setgid permissions on scratch. It is preserved. Reused the existing storage compatibility fix: project-local copy of the installed staging helper changes only rsync permission/ownership restoration, preserving all contents, symlinks, timestamps and Git metadata. Evidence: `reproduction/evidence/staging-compatibility.json`.
+- No GPU request, reconstruction, scoring, or paper result exists yet.

@@ -101,10 +101,24 @@ with torch.no_grad():
 metric_seconds=time.perf_counter()-metric_start
 fid={}
 if args.mode=='final':
-    from pytorch_fid.fid_score import calculate_fid_given_paths
-    for name,_,_,_ in conditions:
-        fid[name]=float(calculate_fid_given_paths([str(out/('reconstructed_imgs_'+name)),str(out/'gt')],batch_size=50,device=torch.device('cuda'),dims=2048,num_workers=4))
-summary={'run_kind':args.mode,'checkpoint':checkpoint,'ignored_checkpoint_keys':ignored_checkpoint_keys,'sample_count':len(samples),'seed':0,'stage':str(Path.cwd()),'job_id':os.getenv('SLURM_JOB_ID'),'node':platform.node(),'gpu':torch.cuda.get_device_name(),'gpu_total_bytes':torch.cuda.get_device_properties(0).total_memory,'torch':torch.__version__,'cuda_build':torch.version.cuda,'preprocessing':'RGB; CenterCrop(256); ToTensor; no resize/normalization','png_encoding':'clip([0,1])*255 then uint8 truncation, released save_imgs','fixed_halting_cutoff':1.0,'adaptive_halting_cutoff':0.75,'budgets':budgets,'epsilons':epsilons,'generation_seconds':generation_seconds,'metric_seconds':metric_seconds,'total_seconds':time.perf_counter()-start,'peak_generation_gpu_bytes':peak_generation,'peak_gpu_bytes':torch.cuda.max_memory_allocated(),'host_peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'reconstruction_fid':fid}
+    from pytorch_fid.fid_score import compute_statistics_of_path,calculate_frechet_distance
+    from pytorch_fid.inception import InceptionV3
+    fid_start=time.perf_counter()
+    fid_model=InceptionV3([InceptionV3.BLOCK_INDEX_BY_DIM[2048]]).eval().cuda()
+    # The identical paired GT is reused for all conditions: compute its official
+    # statistics once. Same package functions, file order, batch and formula.
+    with torch.no_grad():
+        gt_mu,gt_sigma=compute_statistics_of_path(str(out/'gt'),fid_model,50,2048,torch.device('cuda'),4)
+        np.savez(out/'ground-truth-fid-statistics.npz',mu=gt_mu,sigma=gt_sigma)
+        for name,_,_,_ in conditions:
+            mu,sigma=compute_statistics_of_path(str(out/('reconstructed_imgs_'+name)),fid_model,50,2048,torch.device('cuda'),4)
+            np.savez(out/(name+'-fid-statistics.npz'),mu=mu,sigma=sigma)
+            fid[name]=float(calculate_frechet_distance(mu,sigma,gt_mu,gt_sigma))
+            (out/'reconstruction-fid.json').write_text(json.dumps(fid,indent=2))
+            print('reconstruction FID',name,fid[name],flush=True)
+    fid_seconds=time.perf_counter()-fid_start
+    del fid_model
+summary={'run_kind':args.mode,'checkpoint':checkpoint,'ignored_checkpoint_keys':ignored_checkpoint_keys,'sample_count':len(samples),'seed':0,'stage':str(Path.cwd()),'job_id':os.getenv('SLURM_JOB_ID'),'node':platform.node(),'gpu':torch.cuda.get_device_name(),'gpu_total_bytes':torch.cuda.get_device_properties(0).total_memory,'torch':torch.__version__,'cuda_build':torch.version.cuda,'preprocessing':'RGB; CenterCrop(256); ToTensor; no resize/normalization','png_encoding':'clip([0,1])*255 then uint8 truncation, released save_imgs','fixed_halting_cutoff':1.0,'adaptive_halting_cutoff':0.75,'budgets':budgets,'epsilons':epsilons,'generation_seconds':generation_seconds,'metric_seconds':metric_seconds,'fid_seconds':fid_seconds if args.mode=='final' else None,'total_seconds':time.perf_counter()-start,'peak_generation_gpu_bytes':peak_generation,'peak_gpu_bytes':torch.cuda.max_memory_allocated(),'host_peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'reconstruction_fid':fid}
 metrics=np.load(out/'reconstruction_metrics.npz',allow_pickle=True)
 summary['metrics']={}
 for name,_,_,_ in conditions:

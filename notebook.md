@@ -59,3 +59,16 @@
 - DreamSim 0.2.1 ordinarily fetches DINO from a mutable Torch Hub source. Its installed package already bundles the required implementation. All nine relevant class/function syntax trees match the reference source; initialization alone differs and must be completely replaced by strict pretrained-state loading before inference. Use the existing user-owned cached base weights; freeze and verify their identity during CPU configuration. Evidence: `reproduction/evidence/dino-package-equivalence.json`.
 - The unused DINO source copy is not an experiment dependency. The evaluation path denies unplanned dynamic Torch Hub source loads.
 - CPU preparation job 2826204 remains active; no GPU or paper evaluation has run.
+
+### CPU preparation completed; strict configuration in progress
+
+- CPU job 2826204 completed with Slurm exit 0:0 in 1,861 seconds, peak host RSS 9,993,332 KiB, zero GPU use. Its read-only process-inspection step had ps reject the Slurm extern PID sentinel -1; no preparation command failed.
+- Compute-node software: Python 3.10.22, Torch 2.3.0+cu121, CUDA build 12.1, NumPy 1.24.1; full initial environment lock is retained with the run. The source's older pip 20.3 was replaced by pip 23.3.2 for legacy package metadata support.
+- ImageNet1K-trained quantized VQGAN checkpoint: 1,643,547,191 bytes, SHA256 `c5ff98deb0e40c3307e04c5ff5a0f54cccac40e09ada83d19bbc3e2df0ae1600`.
+- ImageNet100-trained quantized VQGAN checkpoint: 1,643,547,191 bytes, SHA256 `a34b4b9ba1d61c5e58aecb96fd253bdc6d9c2e9156a6f13c42a8ae8f472512ae`.
+- Both releases contain EMA only: 833 keys / 410,799,328 tensor elements including 440 GAN-loss keys. No epoch or training arguments are saved. The source model uses 1024-wide positional embeddings and 4096 × 12 latent codebook entries, consistent with inspected checkpoint shapes.
+- Two old conditioning tables, `code_loss_embeddings` and `nll_loss_embeddings`, are absent from current inference code. Exclude only these exact keys and training GAN-loss modules; strict loading must still accept every current inference parameter and reject every other mismatch. Source evaluator instead uses unrestricted strict=False.
+- Dataset manifest: all 5,000 images hashed; SHA256 `9ced640551dc90940fdc06ba65dceff02d590ce08aaf8e5af4d34d9c25b6c2f5`. Checkpoint manifest SHA256 `b4850eac1cc9b78d4ec4c0ec3cfc6b62de6f035b99bd321c10532549d57eb568`.
+- Unpinned metric dependencies selected Transformers 5.20.2, whose own source requires Torch >=2.6. Preserve the official KARL Torch version and pin compatible older metric dependencies instead; evidence `reproduction/evidence/metric-compatibility.json`.
+- CPU configuration job 2826692, source `79f29dd`, stage `/data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_221510-68884e-79f29dd-code`, output `/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/cpu-configuration-2826692/`. Owner remains `karl-reproduce-20261023`.
+- No GPU has been requested. Strict model loading, installed-package source checks and metric-weight preparation must finish first.

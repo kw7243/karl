@@ -1,0 +1,26 @@
+{
+  "paper_id": "2507.07995v1",
+  "urls": [
+    "https://arxiv.org/html/2507.07995v1",
+    "https://arxiv.org/pdf/2507.07995"
+  ],
+  "files": {
+    "paper.pdf": {
+      "bytes": 15473678,
+      "sha256": "f6695baad89c3db905e2d02e5388baeca1f7445f8bb41fff50071dcb280bbbab"
+    },
+    "paper-v1.txt": {
+      "bytes": 90152,
+      "sha256": "c53d75cf7526218e0eefbca320f0e008bc6caf2c73ec7fa64899d1308fec086e"
+    },
+    "paper-v1-compact.txt": {
+      "bytes": 83832,
+      "sha256": "d83ba99e3279e86ee6ec7f2696add1e088ef5a2f644f19279216e8e687516d16"
+    },
+    "paper-v1.html": {
+      "bytes": 307532,
+      "sha256": "f1adc3752fa14f5562a21fa61780b9ab749c24e7c8775e3612690a71bd60ab8f"
+    }
+  },
+  "source_revision": "5c1a5693edf87228f988f363b2acdb7eb826a889"
+}

@@ -49,3 +49,13 @@
 - Output `/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/cpu-prepare-2826204/`; Slurm log is adjacent as `cpu-prepare-2826204.slurm.log`.
 - Earlier stage `20261023_174203-16d9b8-70ca972-code` stopped before submission because archive-mode rsync could not restore retained-directory setgid permissions on scratch. It is preserved. Reused the existing storage compatibility fix: project-local copy of the installed staging helper changes only rsync permission/ownership restoration, preserving all contents, symlinks, timestamps and Git metadata. Evidence: `reproduction/evidence/staging-compatibility.json`.
 - No GPU request, reconstruction, scoring, or paper result exists yet.
+
+### Frozen evaluation driver and metric source preparation
+
+- `reproduction/targets.json` records both primary quantized VQGAN checkpoints, eight released evaluator budgets (32 through 256 in steps of 32), Table 1 targets at 32/128/256, and Table 2 targets at epsilon .03/.05/.09 with maximum 256 tokens.
+- Fixed counts explicitly use halting cutoff 1.0; adaptive inference retains the released hardcoded .75. Requested epsilon 0 is discretized by the released model to .005. No model weights or inference algorithm are replaced.
+- Reuse released PNG saving and reconstruction metric functions. Metric calls run without gradient recording. Keep per-image measurements, token use, PNG encoding, runtime and peak memory; smoke outputs cannot be paper results.
+- Full CPU stage provenance verified 55 tracked file blobs against Git and retained meaningful executable bits. Receipt: `/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/cpu-stage-provenance.json`.
+- DreamSim 0.2.1 ordinarily fetches DINO from a mutable Torch Hub source. Its installed package already bundles the required implementation. All nine relevant class/function syntax trees match the reference source; initialization alone differs and must be completely replaced by strict pretrained-state loading before inference. Use the existing user-owned cached base weights; freeze and verify their identity during CPU configuration. Evidence: `reproduction/evidence/dino-package-equivalence.json`.
+- The unused DINO source copy is not an experiment dependency. The evaluation path denies unplanned dynamic Torch Hub source loads.
+- CPU preparation job 2826204 remains active; no GPU or paper evaluation has run.

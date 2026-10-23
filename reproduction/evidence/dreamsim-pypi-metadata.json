@@ -1,0 +1,18 @@
+{
+  "name": "dreamsim",
+  "version": "0.2.1",
+  "requires_dist": [
+    "numpy",
+    "open-clip-torch",
+    "peft",
+    "Pillow",
+    "torch",
+    "timm",
+    "scipy",
+    "torchvision",
+    "transformers"
+  ],
+  "project_urls": {
+    "Homepage": "https://github.com/ssundaram21/dreamsim"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "package": "dreamsim",
+  "version": "0.2.1",
+  "sdist_url": "https://files.pythonhosted.org/packages/24/a8/808a6ed5435fe42db80f095f24ff025094239beeb2037a8fb6d8d8e828a8/dreamsim-0.2.1.tar.gz",
+  "sdist_sha256": "36c655ee1bb5dbbf1730f03a59ac0d0180922f2151dfbdfb4f058b1756903d14",
+  "packaged_module_sha256": "e0da15d193aa8466a4420469811574f43bbf850e4b2534acfec997b0536492a9",
+  "reference_revision": "7c446df5b9f45747937fb0d72314eb9f7b66930a",
+  "reference_module_sha256": "b1f998d5f49ab43666b9fc6d007c5f6540c3ead2e8645e144f74045f63ff44d7",
+  "AST_matches": {
+    "drop_path": true,
+    "DropPath": true,
+    "Mlp": true,
+    "Attention": true,
+    "Block": true,
+    "PatchEmbed": true,
+    "VisionTransformer": true,
+    "vit_base": true,
+    "DINOHead": true
+  },
+  "difference": "packaged trunc_normal_ is a no-op; strict state loading is mandatory before every forward pass",
+  "reference_execution": false,
+  "source_fork_use": "none; read-only static comparison only"
+}

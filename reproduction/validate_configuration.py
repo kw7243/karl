@@ -22,6 +22,8 @@ for ckpt in receipts:
     del checkpoint,weights,inference,ignored,model
 # Initialize metric weights on CPU without scoring any input.
 import lpips,torchmetrics
+from reproduction.metric_dependencies import pin_dino_source
+pin_dino_source()
 from dreamsim import dreamsim
 alex=lpips.LPIPS(net='alex').eval()
 dream,dream_preprocess=dreamsim(pretrained=True,device='cpu',cache_dir=os.environ['DREAMSIM_CACHE'])

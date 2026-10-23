@@ -16,6 +16,8 @@ import kolmogorov_tokenizers
 # The released evaluator retained the old import name; use its metric/save helpers.
 sys.modules['adaptive_tokenizers']=kolmogorov_tokenizers
 import evaluate as released
+from reproduction.metric_dependencies import pin_dino_source
+pin_dino_source()
 from dreamsim import dreamsim
 released.dreamsim=functools.partial(dreamsim,cache_dir=os.environ['DREAMSIM_CACHE'])
 
@@ -93,7 +95,8 @@ import gc;gc.collect();torch.cuda.empty_cache()
 # Reuse released PNG-based metric definitions. LPIPS receives [0,1] with its
 # default normalize=False; DreamSim receives the same PNG tensors directly.
 metric_start=time.perf_counter()
-released.compute_reconstruction_losses(str(out))
+with torch.no_grad():
+    released.compute_reconstruction_losses(str(out))
 metric_seconds=time.perf_counter()-metric_start
 fid={}
 if args.mode=='final':

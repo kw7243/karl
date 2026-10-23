@@ -152,9 +152,205 @@
   "uncertainty": "No repeated seeds, standard deviations or confidence intervals reported. Two-decimal numbers have \u00b10.005 display rounding and one-decimal token counts \u00b10.05 display rounding, not statistical uncertainty or acceptance thresholds. Report absolute differences without an arbitrary success tolerance.",
   "adaptations": [
     "repair old import name via alias for helper reuse",
-    "strictly load all inference EMA parameters; ignore only training GAN-loss module keys",
+    "strictly load all 391 inference EMA entries; exclude exactly 440 training GAN-loss entries and two obsolete unreferenced conditioning tables",
     "construct in evaluation stage to skip unused GAN losses and base checkpoint initialization; embedded base-tokenizer EMA weights remain mandatory",
     "fixed token budget explicitly disables masking because released epsilon=0 still masks",
     "reuse released PNG save and metric functions without changing formula or inputs"
-  ]
+  ],
+  "conditions": [
+    {
+      "condition": "fixed_32",
+      "token_budget": 32,
+      "epsilon_requested": 0.0,
+      "epsilon_bin": 0.005,
+      "halting_cutoff": 1.0,
+      "expected_active_tokens": 32,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Table 1: L1 x10, LPIPS, SSIM, DreamSim",
+      "additional_fid_target": "Table 4, checkpoint association unspecified",
+      "figure_target": "No numerical figure target claimed; released checkpoint curve only, not architecture/training ablations"
+    },
+    {
+      "condition": "fixed_64",
+      "token_budget": 64,
+      "epsilon_requested": 0.0,
+      "epsilon_bin": 0.005,
+      "halting_cutoff": 1.0,
+      "expected_active_tokens": 64,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Additional released-evaluator curve point; no exact numerical paper target",
+      "additional_fid_target": "Additional reconstruction FID; no exact paper number",
+      "figure_target": "No numerical figure target claimed; released checkpoint curve only, not architecture/training ablations"
+    },
+    {
+      "condition": "fixed_96",
+      "token_budget": 96,
+      "epsilon_requested": 0.0,
+      "epsilon_bin": 0.005,
+      "halting_cutoff": 1.0,
+      "expected_active_tokens": 96,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Additional released-evaluator curve point; no exact numerical paper target",
+      "additional_fid_target": "Additional reconstruction FID; no exact paper number",
+      "figure_target": "No numerical figure target claimed; released checkpoint curve only, not architecture/training ablations"
+    },
+    {
+      "condition": "fixed_128",
+      "token_budget": 128,
+      "epsilon_requested": 0.0,
+      "epsilon_bin": 0.005,
+      "halting_cutoff": 1.0,
+      "expected_active_tokens": 128,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Table 1: L1 x10, LPIPS, SSIM, DreamSim",
+      "additional_fid_target": "Table 4, checkpoint association unspecified",
+      "figure_target": "No numerical figure target claimed; released checkpoint curve only, not architecture/training ablations"
+    },
+    {
+      "condition": "fixed_160",
+      "token_budget": 160,
+      "epsilon_requested": 0.0,
+      "epsilon_bin": 0.005,
+      "halting_cutoff": 1.0,
+      "expected_active_tokens": 160,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Additional released-evaluator curve point; no exact numerical paper target",
+      "additional_fid_target": "Additional reconstruction FID; no exact paper number",
+      "figure_target": "No numerical figure target claimed; released checkpoint curve only, not architecture/training ablations"
+    },
+    {
+      "condition": "fixed_192",
+      "token_budget": 192,
+      "epsilon_requested": 0.0,
+      "epsilon_bin": 0.005,
+      "halting_cutoff": 1.0,
+      "expected_active_tokens": 192,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Additional released-evaluator curve point; no exact numerical paper target",
+      "additional_fid_target": "Additional reconstruction FID; no exact paper number",
+      "figure_target": "No numerical figure target claimed; released checkpoint curve only, not architecture/training ablations"
+    },
+    {
+      "condition": "fixed_224",
+      "token_budget": 224,
+      "epsilon_requested": 0.0,
+      "epsilon_bin": 0.005,
+      "halting_cutoff": 1.0,
+      "expected_active_tokens": 224,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Additional released-evaluator curve point; no exact numerical paper target",
+      "additional_fid_target": "Additional reconstruction FID; no exact paper number",
+      "figure_target": "No numerical figure target claimed; released checkpoint curve only, not architecture/training ablations"
+    },
+    {
+      "condition": "fixed_256",
+      "token_budget": 256,
+      "epsilon_requested": 0.0,
+      "epsilon_bin": 0.005,
+      "halting_cutoff": 1.0,
+      "expected_active_tokens": 256,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Table 1: L1 x10, LPIPS, SSIM, DreamSim",
+      "additional_fid_target": "Table 4, checkpoint association unspecified",
+      "figure_target": "No numerical figure target claimed; released checkpoint curve only, not architecture/training ablations"
+    },
+    {
+      "condition": "adaptive_0.03",
+      "token_budget": 256,
+      "epsilon_requested": 0.03,
+      "epsilon_bin": 0.03,
+      "halting_cutoff": 0.75,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Table 2: mean active tokens, LPIPS, SSIM",
+      "additional_fid_target": "Table 4, checkpoint association unspecified",
+      "other_metrics": "L1, DreamSim and PSNR are additional measurements without Table 2 targets",
+      "figure_target": "No numerical figure target claimed; three-point adaptive curve only"
+    },
+    {
+      "condition": "adaptive_0.05",
+      "token_budget": 256,
+      "epsilon_requested": 0.05,
+      "epsilon_bin": 0.05,
+      "halting_cutoff": 0.75,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Table 2: mean active tokens, LPIPS, SSIM",
+      "additional_fid_target": "Table 4, checkpoint association unspecified",
+      "other_metrics": "L1, DreamSim and PSNR are additional measurements without Table 2 targets",
+      "figure_target": "No numerical figure target claimed; three-point adaptive curve only"
+    },
+    {
+      "condition": "adaptive_0.09",
+      "token_budget": 256,
+      "epsilon_requested": 0.09,
+      "epsilon_bin": 0.09,
+      "halting_cutoff": 0.75,
+      "per_image_metric_samples": 5000,
+      "token_usage_samples": 5000,
+      "reconstruction_fid_samples": {
+        "reconstructions": 5000,
+        "paired_ground_truth": 5000
+      },
+      "primary_target": "Table 2: mean active tokens, LPIPS, SSIM",
+      "additional_fid_target": "Table 4, checkpoint association unspecified",
+      "other_metrics": "L1, DreamSim and PSNR are additional measurements without Table 2 targets",
+      "figure_target": "No numerical figure target claimed; three-point adaptive curve only"
+    }
+  ],
+  "metric_sample_counts": {
+    "per_image_L1_LPIPS_SSIM_PSNR_DreamSim": 5000,
+    "mean_active_tokens": 5000,
+    "reconstruction_FID_reconstructions": 5000,
+    "reconstruction_FID_paired_ground_truth": 5000,
+    "generation_FID": null
+  }
 }

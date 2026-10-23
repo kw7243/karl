@@ -72,3 +72,11 @@
 - Unpinned metric dependencies selected Transformers 5.20.2, whose own source requires Torch >=2.6. Preserve the official KARL Torch version and pin compatible older metric dependencies instead; evidence `reproduction/evidence/metric-compatibility.json`.
 - CPU configuration job 2826692, source `79f29dd`, stage `/data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_221510-68884e-79f29dd-code`, output `/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/cpu-configuration-2826692/`. Owner remains `karl-reproduce-20261023`.
 - No GPU has been requested. Strict model loading, installed-package source checks and metric-weight preparation must finish first.
+
+### CPU checks complete; first GPU request
+
+- Configuration job 2826692 completed 0:0 in 423 s, peak host RSS 5,641,148 KiB. Both strict inference loads and metric initialization passed; pinned metric dependencies retain Torch 2.3.0+cu121, and pip check passes.
+- Checkpoint coverage is explicit in reproduction/evidence/checkpoint-inference-coverage.json: 833 EMA keys minus 440 training GAN-loss keys minus two obsolete, unreferenced conditioning tables = 391 strictly loaded inference keys. Encoder, decoder, both quantizers/base tokenizer, learned halting and the current rec_loss_embeddings are included. Evaluation never enters the training loss block.
+- Input audit job 2826785 completed 0:0 in 170 s, peak RSS 3,963,604 KiB. All 5,000 JPEGs decode; 4,912 RGB and 88 grayscale inputs are explicitly converted to RGB. All 5,000 output stems are unique. 136 small images receive released CenterCrop padding. Ten metric weight files have frozen SHA256 values in cpu-input-audit-2826785/results.json.
+- Proposed attended diagnosis: one RTX 2080 Ti (11 GiB), 4 CPUs, 16 GiB RAM, 30 minutes, vision-shared-rtx2080ti / vision-torralba-urops-meng / shared-if-available. Torch includes native sm_75. Model weights are about 1.08 GB plus metric models and activations; measure actual memory and runtime before final jobs. This allocation does not use B1's H100 resources. Avoid the separately reported faulty isola-3080-1 node.
+- No reconstruction or paper result exists yet. Smoke runs will be labeled separately.

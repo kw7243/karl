@@ -1,0 +1,9 @@
+{
+  "original_sha256": "44e5dc6f1a958b1f4b32e8dceeb49814885ad8dcca59716090ca87b1033731fa",
+  "project_helper_sha256": "f69e0ffd7b8129302952d13d62d658645b8a83f26af9c10e68f8abeed024ae3b",
+  "change": "rsync archive permissions replaced with content/link/time copy; directory setgid modes cannot be restored on destination",
+  "precedent": "/home/ubuntu/firstmate/data/sp-b1-assets-20261020/staging-compatibility.json",
+  "failed_stage": "/data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_174203-16d9b8-70ca972-code",
+  "failed_exit": 23,
+  "submission_attempted": false
+}

@@ -2,6 +2,7 @@
 import argparse, json, os, platform, sys, hashlib, inspect, time
 from pathlib import Path
 import torch
+sys.path.insert(0,str(Path.cwd()))
 sys.path.insert(0,str(Path.cwd()/'base_tokenizers'))
 import kolmogorov_tokenizers
 p=argparse.ArgumentParser();p.add_argument('--preparation',required=True);p.add_argument('--output',required=True);args=p.parse_args()

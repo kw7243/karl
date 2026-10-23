@@ -10,6 +10,7 @@ import numpy as np
 import torch
 from PIL import Image
 from torchvision import transforms
+sys.path.insert(0,str(Path.cwd()))
 sys.path.insert(0,str(Path.cwd()/'base_tokenizers'))
 import kolmogorov_tokenizers
 # The released evaluator retained the old import name; use its metric/save helpers.

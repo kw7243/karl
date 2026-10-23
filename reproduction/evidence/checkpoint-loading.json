@@ -1,0 +1,11 @@
+{
+  "checkpoint_keys": 833,
+  "GAN_loss_keys": 440,
+  "obsolete_conditioning_keys": [
+    "code_loss_embeddings",
+    "nll_loss_embeddings"
+  ],
+  "obsolete_conditioning_source_references": 0,
+  "reason": "Released EMA retains two old conditioning tables absent from current model. The released evaluator strict=False would ignore them. Explicitly exclude those exact tables and training GAN-loss modules, then strict=True must load every current inference parameter and reject every other unknown/missing key.",
+  "strict_runtime_check": "pending CPU configuration"
+}

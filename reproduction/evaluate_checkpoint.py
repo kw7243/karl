@@ -13,6 +13,7 @@ from torchvision import transforms
 sys.path.insert(0,str(Path.cwd()))
 sys.path.insert(0,str(Path.cwd()/'base_tokenizers'))
 import kolmogorov_tokenizers
+from reproduction.checkpoint import load_inference_state
 # The released evaluator retained the old import name; use its metric/save helpers.
 sys.modules['adaptive_tokenizers']=kolmogorov_tokenizers
 import evaluate as released
@@ -49,7 +50,7 @@ start=time.perf_counter()
 model=kolmogorov_tokenizers.karl_small(base_tokenizer_args={'id':'vqgan','is_requires_grad':False,'pretrained_ckpt_path':None},quantize_latent=True,factorize_latent=True,train_stage='evaluation')
 ckpt=torch.load(checkpoint['path'],map_location='cpu',mmap=True)
 weights=ckpt['ema']
-model.load_state_dict({k:v for k,v in weights.items() if not k.startswith('gan_losses.')},strict=True)
+ignored_checkpoint_keys=load_inference_state(model,weights)
 del ckpt,weights
 model=model.eval().cuda()
 original_prepare=model.prepare_decoder_latents
@@ -103,7 +104,7 @@ if args.mode=='final':
     from pytorch_fid.fid_score import calculate_fid_given_paths
     for name,_,_,_ in conditions:
         fid[name]=float(calculate_fid_given_paths([str(out/('reconstructed_imgs_'+name)),str(out/'gt')],batch_size=50,device=torch.device('cuda'),dims=2048,num_workers=4))
-summary={'run_kind':args.mode,'checkpoint':checkpoint,'sample_count':len(samples),'seed':0,'stage':str(Path.cwd()),'job_id':os.getenv('SLURM_JOB_ID'),'node':platform.node(),'gpu':torch.cuda.get_device_name(),'gpu_total_bytes':torch.cuda.get_device_properties(0).total_memory,'torch':torch.__version__,'cuda_build':torch.version.cuda,'preprocessing':'RGB; CenterCrop(256); ToTensor; no resize/normalization','png_encoding':'clip([0,1])*255 then uint8 truncation, released save_imgs','fixed_halting_cutoff':1.0,'adaptive_halting_cutoff':0.75,'budgets':budgets,'epsilons':epsilons,'generation_seconds':generation_seconds,'metric_seconds':metric_seconds,'total_seconds':time.perf_counter()-start,'peak_generation_gpu_bytes':peak_generation,'peak_gpu_bytes':torch.cuda.max_memory_allocated(),'host_peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'reconstruction_fid':fid}
+summary={'run_kind':args.mode,'checkpoint':checkpoint,'ignored_checkpoint_keys':ignored_checkpoint_keys,'sample_count':len(samples),'seed':0,'stage':str(Path.cwd()),'job_id':os.getenv('SLURM_JOB_ID'),'node':platform.node(),'gpu':torch.cuda.get_device_name(),'gpu_total_bytes':torch.cuda.get_device_properties(0).total_memory,'torch':torch.__version__,'cuda_build':torch.version.cuda,'preprocessing':'RGB; CenterCrop(256); ToTensor; no resize/normalization','png_encoding':'clip([0,1])*255 then uint8 truncation, released save_imgs','fixed_halting_cutoff':1.0,'adaptive_halting_cutoff':0.75,'budgets':budgets,'epsilons':epsilons,'generation_seconds':generation_seconds,'metric_seconds':metric_seconds,'total_seconds':time.perf_counter()-start,'peak_generation_gpu_bytes':peak_generation,'peak_gpu_bytes':torch.cuda.max_memory_allocated(),'host_peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'reconstruction_fid':fid}
 metrics=np.load(out/'reconstruction_metrics.npz',allow_pickle=True)
 summary['metrics']={}
 for name,_,_,_ in conditions:

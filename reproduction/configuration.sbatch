@@ -22,5 +22,7 @@ pwd
 free -h
 findmnt -T "$PWD"
 python -c 'import torch; assert torch.__version__.split("+")[0]=="2.3.0"; print(torch.__version__)'
+python -m pip install --no-compile transformers==4.44.2 peft==0.13.2 accelerate==0.34.2 open-clip-torch==2.24.0 setuptools==80.9.0 torch==2.3.0 torchvision==0.18.0 numpy==1.24.1 timm==0.4.9
+python -m pip freeze > "$out/pip-freeze.txt"
 python -m pip check
 python -u reproduction/validate_configuration.py --preparation /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/cpu-prepare-2826204 --output "$out"

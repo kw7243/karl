@@ -1,0 +1,14 @@
+{
+  "problem": "Unbounded DreamSim dependencies selected Transformers 5.20.2, whose installed dependency_versions_table.py requires torch>=2.6, conflicting with official KARL PyTorch 2.3.0",
+  "evidence_file": "/data/scratch-fast/kwen1/envs/karl-reproduce-20261023/lib/python3.10/site-packages/transformers/dependency_versions_table.py",
+  "evidence_line": 73,
+  "resolution": "Before model/metric execution, pin compatible published dependency releases without changing KARL PyTorch/torchvision/numpy/timm pins",
+  "pins": {
+    "transformers": "4.44.2",
+    "peft": "0.13.2",
+    "accelerate": "0.34.2",
+    "open-clip-torch": "2.24.0",
+    "setuptools": "80.9.0"
+  },
+  "gpu_use_before_resolution": false
+}

@@ -1,0 +1,50 @@
+{
+  "run_id": "closure-addendum-20261024",
+  "node_id": "RELEASED_CHECKPOINT_CLOSURE",
+  "record_type": "documentation_addendum_not_experiment",
+  "status": "PASS",
+  "status_scope": "Documentation and bounded-evidence completeness only; no paper-agreement claim.",
+  "decision_reason": "STOP_RELEASED_CHECKPOINT_COMPLETE",
+  "stop_trigger": "Both frozen 5,000-image, eleven-condition checkpoint evaluations, all completeness and GT-cache checks, and the comparison tables, figures and provenance records are complete.",
+  "unperformed_required_protocol_checks": [],
+  "new_experiments": false,
+  "scientific_setting_changes": false,
+  "paper_agreement_established": false,
+  "preserved_artifacts": [
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827023-imagenet/report.md",
+      "sha256": "2b35b143afab9db1ba9354d1ad84f7c0ce3d4040654c952f80ce42931f3adbe8"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827023-imagenet/results.json",
+      "sha256": "a28a3e894abff87aa10fe14f316bdf8d7051e569c6e8b80aa573319109aaf979"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827031-imagenet100/report.md",
+      "sha256": "7dcd731de20f0912404cb0256366bbf1c68402cdb359988172527294a9061396"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827031-imagenet100/results.json",
+      "sha256": "27271da1a34999bd0258a02a1f0b4d1a7267bb825bb6c3844187f26b7d47c8a5"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/report.md",
+      "sha256": "94520613fd560dfc221597063cf00ee8a4a45d75ff512fdf6e575ea7ab667236"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/results.json",
+      "sha256": "0e0d99287ddb4c21eb354dc8079a02a8dfcedf5a55e5708f66a4f7c0d7e75073"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/gt-cache-readback-2828173/report.md",
+      "sha256": "d242a9a0f83e11cfee5c4bc25d1e49eaf83a5f9e1270f0833e01480258ef5c25"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/gt-cache-readback-2828173/results.json",
+      "sha256": "35b9ffa8cd5f26a0e57f55db76539507feec9687f6098babbcf9569c1fdcdfa3"
+    }
+  ],
+  "supersedes": "Next-action instructions in the listed immutable final-run reports only; measurements and original records remain unchanged.",
+  "recommendation": "Protocol clarification may inform separately defined future work; no unbounded settings search or training decision is required to close this assignment.",
+  "at_utc": "2026-10-24T01:35:29.828997+00:00"
+}

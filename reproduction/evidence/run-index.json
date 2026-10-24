@@ -165,5 +165,13 @@
   "consolidated_results": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/results.json",
   "gt_cache_readback": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/gt-cache-readback-2828173/results.json",
   "all_owned_jobs_terminal": true,
-  "ownership_release": "Submission history remains attributed to karl-reproduce-20261023; active terminal and canonical notebook ownership returns to Firstmate at the completion handoff."
+  "ownership_release": "Submission history remains attributed to karl-reproduce-20261023; active terminal and canonical notebook ownership returns to Firstmate at the completion handoff.",
+  "documentation_closure": {
+    "stop_status": "STOP_RELEASED_CHECKPOINT_COMPLETE",
+    "trigger": "Both frozen 5,000-image, eleven-condition checkpoint evaluations, all completeness and GT-cache checks, and the comparison tables, figures and provenance records are complete.",
+    "unperformed_required_protocol_checks": [],
+    "addendum_report": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/closure-addendum-20261024/report.md",
+    "addendum_results": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/closure-addendum-20261024/results.json",
+    "scientific_records_unchanged": true
+  }
 }

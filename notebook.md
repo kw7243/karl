@@ -5,7 +5,7 @@
 - Released-checkpoint assignment completed on 2026-10-24 UTC; both full GPU jobs and CPU validation jobs are terminal.
 - Complete numerical agreement with the paper is not established. Exact actual/paper/difference tables and figures: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/.
 - All raw data, checkpoints, environments, complete stages and results remain on CSAIL. No active job remains owned by this assignment after the completion handoff.
-- Next action: resolve the documented IN1K high-budget protocol discrepancy before considering full training.
+- Next action: `STOP_RELEASED_CHECKPOINT_COMPLETE`. Trigger: all frozen evaluations, completeness/GT-cache checks, tables and figures are complete.
 
 ## Source setup receipt: 2026-10-23
 
@@ -126,5 +126,13 @@
 - Protocol limits remain explicit: repaired unfinished evaluator; requested epsilon 0 maps to .005; fixed masking is explicitly disabled; adaptive cutoff .75 differs from unused YAML .55; released standard-data cropping omits the demo resize and pads 136 small images; metric versions are not fully pinned by the paper. No post-result checkpoint/setting selection was used.
 - Operational failures remain separate: one pre-submission staging permission failure and CPU aggregation 2828148 missing Matplotlib. Both are preserved. Matplotlib 3.7.5 with NumPy 1.24.1 fixed the CPU plotting prerequisite; pip check passed. The initial unpinned metric dependency mismatch was resolved on CPU before GPU use.
 - Scope error: the unmentioned fork https://github.com/kw7243/dino was created at 2026-10-23T21:58:46Z. It and its plain local copy are preserved; no model or experiment used its code. The installed DreamSim implementation is used. No further repository was created.
-- Training recommendation: resolve the IN1K high-budget evaluation-protocol discrepancy before full training. Literal released scripts specify 200 epochs at 8 x 64 images, then 400 epochs at 8 x 18, accum_iter 1. Existing split counts imply 49,400 + 351,600 loader iterations for IN100 (126,689 files), or 500,400 + 3,558,800 for IN1K (1,281,167 files). Conditional wall/GPU-hour formulas and the appendix's 8 x 80 GB GPU reference are in the consolidated results; no unsupported absolute training-time estimate is inferred from evaluation timing.
-- Next action: scope a protocol-focused follow-up for the IN1K 256-token discrepancy. This bounded released-checkpoint assignment is complete. All owned jobs are terminal; active terminal and canonical notebook ownership return to Firstmate with the completion handoff.
+- Recommendation outside this bounded assignment: protocol clarification could help interpret the IN1K high-budget discrepancy if a future task defines a concrete comparison. It is not required work here. Literal released scripts specify 200 epochs at 8 x 64 images, then 400 epochs at 8 x 18, accum_iter 1. Existing split counts imply 49,400 + 351,600 loader iterations for IN100 (126,689 files), or 500,400 + 3,558,800 for IN1K (1,281,167 files). Conditional wall/GPU-hour formulas and the appendix's 8 x 80 GB GPU reference are in the consolidated results; no unsupported absolute training-time estimate is inferred from evaluation timing.
+- Next action: `STOP_RELEASED_CHECKPOINT_COMPLETE`. Trigger: all frozen evaluations and completeness/GT-cache checks are complete. No concrete required protocol check remains. All owned jobs are terminal; active terminal and canonical notebook ownership return to Firstmate with the completion handoff.
+
+## 2026-10-24: explicit bounded stop
+
+- Defined stop: `STOP_RELEASED_CHECKPOINT_COMPLETE`. Trigger: Both frozen 5,000-image, eleven-condition checkpoint evaluations, all completeness and GT-cache checks, and the comparison tables, figures and provenance records are complete.
+- No concrete check in the frozen protocol remains unperformed. An unbounded settings search is not a pending node.
+- Measured mismatch and protocol clarification remain limitations/recommendations; no numerical paper agreement or new training-approval requirement is implied.
+- Immutable final-run records are preserved. Next-action closure addendum: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/closure-addendum-20261024/report.md and results.json; committed copy: reproduction/evidence/closure-addendum-20261024.md and .json on the research branch.
+- This pass changes documentation only. Active terminal and canonical notebook ownership return to Firstmate after the updated backups are verified.

@@ -16,4 +16,7 @@ hostname
 pwd
 free -h
 findmnt -T "$PWD"
+python -m pip install --no-compile matplotlib==3.7.5 numpy==1.24.1
+python -m pip check
+python -m pip freeze > "$out.pip-freeze.txt"
 python -u reproduction/aggregate.py --output "$out"

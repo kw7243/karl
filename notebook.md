@@ -96,3 +96,9 @@
 - ImageNet1K checkpoint job2827023: stage /data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_224053-d730d6-fd946c7-code; output /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827023-imagenet; adjacent final-imagenet-2827023.slurm.log.
 - ImageNet100 checkpoint job2827031: stage /data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_224128-cb7936-fd946c7-code; output /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827031-imagenet100; adjacent final-imagenet100-2827031.slurm.log.
 - Exact receipts: karl-reproduction-results/final-submissions.json. Jobs are accepted, not completed; no paper result is inferred yet.
+
+### Full evaluations terminal; CPU aggregation prerequisite fixed
+
+- GPU jobs 2827023 and 2827031 completed 0:0 on inspector-gadget.drl in 8,512 and 8,464 seconds. Both results.json files are MEASURED. Their full sample counts and raw metric/token completeness still require independent readback checks.
+- CPU aggregation job 2828148 stopped before scientific checks because Matplotlib was absent. Failed stage /data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261024_010826-bb8e7e-a6f91b6-code and karl-reproduction-results/aggregation-2828148 retain the operational failure report/log. No GPU result is classified as failed because of this dependency error.
+- Install pinned Matplotlib 3.7.5 for CPU figures, retain NumPy 1.24.1, record the post-install analysis lock and require pip check. Retry only the CPU aggregation from a fresh full stage. No GPU resubmission, checkpoint selection or evaluation-setting change.

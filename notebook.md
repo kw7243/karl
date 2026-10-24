@@ -2,10 +2,13 @@
 
 ## Current state
 
-- Released-checkpoint assignment completed on 2026-10-24 UTC; both full GPU jobs and CPU validation jobs are terminal.
-- Complete numerical agreement with the paper is not established. Exact actual/paper/difference tables and figures: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/.
-- All raw data, checkpoints, environments, complete stages and results remain on CSAIL. No active job remains owned by this assignment after the completion handoff.
-- Next action: `STOP_RELEASED_CHECKPOINT_COMPLETE`. Trigger: all frozen evaluations, completeness/GT-cache checks, tables and figures are complete.
+- A1 KARL evidence reconciliation started on 2026-10-24 UTC under joint adaptive tokenization plan SHA25671728da427a6946146d12cc4bff4eddfbf308e6f79d15a86c39b993d64196f5b.
+- Sole A1 KARL submission, terminal and canonical-notebook writer: jat-a1-karl-20261024.
+- Completed released-checkpoint work remains closed and unchanged; this is a separately scoped reuse/CPU reduction.
+- New research branch: research/joint-adaptive-tokenization-20261024, based on b1d6fa2bd3e6e5691a632d5427656fe83ed87fca.
+- Source: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024.
+- Output: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1.
+- Planned work: byte/hash verification and CPU reduction of existing IN100 .05/.09 rows and raw L1 logs. No new inference or GPU allocation.
 
 ## Source setup receipt: 2026-10-23
 
@@ -136,3 +139,10 @@
 - Measured mismatch and protocol clarification remain limitations/recommendations; no numerical paper agreement or new training-approval requirement is implied.
 - Immutable final-run records are preserved. Next-action closure addendum: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/closure-addendum-20261024/report.md and results.json; committed copy: reproduction/evidence/closure-addendum-20261024.md and .json on the research branch.
 - This pass changes documentation only. Active terminal and canonical notebook ownership return to Firstmate after the updated backups are verified.
+
+## 2026-10-24: A1 KARL reconciliation intake
+
+- Verified canonical main134c2162091ac638d0bff03b68d23205af90cf1e and completed research b1d6fa2bd3e6e5691a632d5427656fe83ed87fca locally and through gh-axi.
+- Existing inference adapter fd946c7532bd6ac90d62dcb625f38bc45e6c6ec6 preserves official model source5c1a5693edf87228f988f363b2acdb7eb826a889.
+- The CPU reduction will retain seed0, distinguish raw L1 from source PNG metrics and document original-slot/batch1 behavior.
+- Only the coordinator can accept the A1 gate or continue the full campaign.

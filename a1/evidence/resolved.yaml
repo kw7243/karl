@@ -1,0 +1,90 @@
+{
+  "node_id": "A1",
+  "method_id": "KARL_IN100_SOURCE",
+  "record_kind": "reuse_and_cpu_reduction_no_new_inference",
+  "source_commit": "5c1a5693edf87228f988f363b2acdb7eb826a889",
+  "inference_adapter_commit": "fd946c7532bd6ac90d62dcb625f38bc45e6c6ec6",
+  "parent_research_commit": "b1d6fa2bd3e6e5691a632d5427656fe83ed87fca",
+  "checkpoint_sha256": "a34b4b9ba1d61c5e58aecb96fd253bdc6d9c2e9156a6f13c42a8ae8f472512ae",
+  "checkpoint_weights": "ema",
+  "seed": 0,
+  "requested_evaluation_seed": 20261023,
+  "bootstrap_seed": 917,
+  "bootstrap_resamples": 1000,
+  "sample_count": 5000,
+  "batch_size": 1,
+  "candidate_count": 256,
+  "requests": [
+    0.05,
+    0.09
+  ],
+  "actual_halting_cutoff": 0.75,
+  "unused_configured_halting_threshold": 0.55,
+  "slot_policy": "original positional indices; all 256 candidate positions and native Boolean attention mask; no prefix substitution or compaction",
+  "model": {
+    "factory": "karl_small",
+    "train_stage": "evaluation",
+    "base_tokenizer": "vqgan",
+    "base_pretrained_ckpt_path": null,
+    "base_is_requires_grad": false,
+    "encoder_width": 1024,
+    "encoder_layers": 8,
+    "encoder_heads": 16,
+    "decoder_width": 1024,
+    "decoder_layers": 8,
+    "decoder_heads": 16,
+    "quantize_latent": true,
+    "factorize_latent": true,
+    "vq_codebook_size": 4096,
+    "vq_token_dim": 12,
+    "vq_commitment_cost": 0.25,
+    "vq_use_l2_norm": true,
+    "patch_size": 16,
+    "num_init_latent_tokens": 32,
+    "max_rollout_iters": 8,
+    "dynamic_halting": true,
+    "max_grid_tokens": 64
+  },
+  "preprocessing": "PIL RGB; torchvision CenterCrop(256), with source zero padding if smaller; ToTensor [0,1]; no resize, flip or normalization",
+  "precision": {
+    "weights": "float32",
+    "inference": "float32; no autocast",
+    "tf32_matmul": false,
+    "tf32_cudnn": true,
+    "cudnn_benchmark": true,
+    "cudnn_deterministic": false
+  },
+  "optimizer": null,
+  "lr": null,
+  "main_updates": 0,
+  "source_run": "final-2827031-imagenet100",
+  "source_job_id": 2827031,
+  "source_stage": "/data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_224128-cb7936-fd946c7-code",
+  "environment": "/data/scratch-fast/kwen1/envs/karl-reproduce-20261023",
+  "cpu_resources": {
+    "partition": "tig-cpu",
+    "account": "csail",
+    "qos": "tig-main",
+    "cpus": 1,
+    "memory_gib": 4,
+    "wall_minutes": 20
+  },
+  "scientific_gate": {
+    "minimum_token_reduction": 0.2,
+    "reference_tokens": [
+      229.6,
+      152.5
+    ],
+    "relative_count_tolerance": 0.1,
+    "reference_source_lpips": [
+      0.15,
+      0.21
+    ],
+    "absolute_lpips_tolerance": 0.03
+  },
+  "raw_l1": "source log: mean(abs(input - raw unclamped reconstruction))",
+  "violation": "per-image raw source L1 > requested Python value; also report FP32 request-bound comparison",
+  "png_l1": "saved source loglaplace rows, no x10; both images clipped and uint8 truncated",
+  "generation": null,
+  "generation_null_reason": "KARL allocation reference has no generation workload"
+}

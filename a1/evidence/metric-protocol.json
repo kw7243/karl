@@ -1,0 +1,26 @@
+{
+  "lpips": {
+    "implementation": "lpips==0.1.4",
+    "network": "alex",
+    "version": "0.1",
+    "input": "saved PNG RGB tensors [0,1]",
+    "normalize": false,
+    "eval": true,
+    "batch_size": 1
+  },
+  "ssim": {
+    "implementation": "torchmetrics==1.4.0",
+    "class": "StructuralSimilarityIndexMeasure",
+    "data_range": 1.0,
+    "per_image": "return value saved at each batch1 call; module not reset by released helper"
+  },
+  "l1": {
+    "source_log": "raw output, equal pixels/channels and image weight, full-precision scalar repr",
+    "loglaplace": "PNG mean absolute error, unscaled",
+    "paper_table1": "loglaplace multiplied by10, not used for this adaptive A1 gate"
+  },
+  "new_pilot_external_lpips": "Alex inputs [-1,1], distinct and not reused here",
+  "png": "released save_imgs: clip(x*255,0,255), uint8 truncation, OpenCV PNG",
+  "reduction": "float64 over existing per-image rows; equal classes/images; strict > target violation",
+  "bootstrap": "1000 paired within-class resamples, 50 rows per each of100 classes, seed917"
+}

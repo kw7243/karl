@@ -1,0 +1,277 @@
+{
+  "source_commit": "5c1a5693edf87228f988f363b2acdb7eb826a889",
+  "checkpoint_sha256": "a34b4b9ba1d61c5e58aecb96fd253bdc6d9c2e9156a6f13c42a8ae8f472512ae",
+  "data_manifest_sha256": "9ced640551dc90940fdc06ba65dceff02d590ce08aaf8e5af4d34d9c25b6c2f5",
+  "metric_protocol_sha256": "8372b57a5dcfe55c650647e630c7abe8420a0bcf5e8536d30360003ea6e7c66f",
+  "config_sha256": "e62fe7f422b62bf931f71a2dcf1db61831c2058d566273d896556e5b1c47f22f",
+  "source_files_sha256": {
+    ".gitignore": "c5ca16c859ab4bf3966a0cd7f3f32f9d1d68fedd811b92c8a0951a8915be2c63",
+    "README.md": "cfb165e0b111caa61915ade9cde7902e5286045934c2e7a66793ce0bfac72308",
+    "assets/custom_images/000000.png": "52d444a5722d4084bb3b30ba827fc48c0247e2926b47b2edc10821f69ddb11f1",
+    "assets/custom_images/000001.png": "433fd1bd98cc4b29fa63760f4620ef3b7c132ed26cd44452e7ac896ec405f37e",
+    "assets/custom_images/000002.png": "db019d23e244a2a913ca3618b356ee29eef77c6f18d26c9f131df995cccdb8ad",
+    "assets/karl_architecture.png": "da1db2bb5582e7629a3d270c1801c3df7757d9c9a59820b2ab55a38e0051b09d",
+    "assets/karl_computation_graph.png": "becfc2c214abf3883bdfc27e7310532f009c950944e941ec9e161f8ef9fa07ec",
+    "assets/karl_default_reconstruction.png": "9c912171bd49ba6416470c8cb93f1963da225efa916118e14ac879964fd6e589",
+    "assets/karl_variable_tokenization_example.png": "bf7a6b4100064cb848c236ee8f152cb233cc27a0a7f224a3c783b900134c694b",
+    "base_tokenizers/__init__.py": "0dd07367daf072c2e61364e0e39c42d717fe06ee92ad2716a40c16357e16d4b4",
+    "base_tokenizers/configs/vqgan.yaml": "3a544b7f4335bc33ad9f184607ecb779fbc153a9217472cea27c7a12565dcf24",
+    "base_tokenizers/pretrained_models/download.py": "3d25ac0dc664ba4178da43967dbaa17189d38c2caff099c6512a31eaa02ab884",
+    "base_tokenizers/taming/models/vqgan.py": "09e0195f3ea8d9aa9b600c5f916de34dc99219c891d693330078539752e0ee42",
+    "base_tokenizers/taming/modules/autoencoder/lpips/vgg.pth": "a78928a0af1e5f0fcb1f3b9e8f8c3a2a5a3de244d830ad5c1feddc79b8432868",
+    "base_tokenizers/taming/modules/diffusionmodules/model.py": "c88a3b7cf33f2138c5456afcb4078da4e53bfafb0bb4a6bb3c3dd9ba85bc86af",
+    "base_tokenizers/taming/modules/util.py": "2c5e57e149579e130be70fcc6f45004fcdd1e98f1429ea13cdc13e69ebf767c2",
+    "base_tokenizers/taming/modules/vqvae/quantize.py": "413240a68fba887f05098012a72f9edf5d38ff645f6cab61efd70ef2a9f69d45",
+    "base_tokenizers/taming/util.py": "1cfca04205f0b647da271809c3011b0f0c2fc920e1e847c79b270ee138f9de02",
+    "base_tokenizers/vae_ldm.py": "3736fd2f3e48e07499813ecf9f2b529d56e359a0733205f51b44a88b9790a751",
+    "engines/full_finetuning.py": "9e7309f2ce71fe035c472a8d5dea0d049f76f3ffbd5f0716b886e89a0f6b2708",
+    "engines/latent_distillation_pretrain.py": "92688864617ea705202c3cb4f5d2985067033038ce7e3da9e3f23ab02fa94683",
+    "engines/utils.py": "37b178c7341a0a8d8f52252f38b6f7011b39bcb48a1237e45f963fa0ad0b3157",
+    "environment.yaml": "d61d4416b939344b981d10ed380331086927b94f3a8062fdf9c6c06f941702a6",
+    "evaluate.py": "5dfa7824f7fa290f22eef916556a4b9a88beae5eadc1f01fa7dbf9bf8de6445c",
+    "kolmogorov_tokenizer_demo.ipynb": "7bf236aaee8e91d0a7a7a85c33f73f13aad45e3e19ffb8401d64e22966a4a3f0",
+    "kolmogorov_tokenizers/__init__.py": "dd79ac1b30811296159342ea668b3870f97a26a9dd5daaf2d544c5169028a1fa",
+    "kolmogorov_tokenizers/configs/karl_vae.yaml": "1c2f07cedb757c11b4434c26a636c92bc9ee7190294df446f7c8b0ef17c68292",
+    "kolmogorov_tokenizers/configs/karl_vqgan.yaml": "c84bd7cb9420ee6a94690eca5052d3295b2f90a7596cd9ab63cb129fb0b643c7",
+    "kolmogorov_tokenizers/karl_vae.py": "f9d807e2e7e0d13f5ceb63453ee8190cb6c6b3649efa1e867692400b09a16207",
+    "kolmogorov_tokenizers/karl_vqgan.py": "2dd1e3295b262ce8a81c5cb3989477e6f3150564999bd8babb0bddcfff872774",
+    "kolmogorov_tokenizers/pretrained_models/download.py": "b4ce6269d5c0acd1415794703b792d8fd70f8f73bd64accab5f842140fa6bde8",
+    "main_full_finetuning.py": "974833b9508a6746a42046181c942253b36104d093b70a59f982eb49a6d58c06",
+    "main_pretrain.py": "b037230032c9e4cbb0667e2f2442d2ea74e77cbb9b1afcab77e58957d654beb6",
+    "modules/base.py": "e6da8889939a4c89673b1b5cb9c004569b6923653145a1efa8c4c9be7353036c",
+    "modules/base_tokenizers.py": "1f42e3a56198c0082fefed72ec00e736681ccd0b24ba6283076d04643a93d63d",
+    "modules/latent_distillation_modules.py": "8398803f83f78e345b9762f705b2c8fdcfd36a1834d2c40a3087e24a5a954b7a",
+    "modules/losses/discriminator.py": "86c68350a25cbd85d9768f81b6ae179289e2688833eaa245b6b9a98de59b66d7",
+    "modules/losses/lpips.py": "f1a64d4fc437780c1057d5b87d1d9960148f114aaa7c7a69d279c2cf0516e655",
+    "modules/losses/nll.py": "e18fddcf3bba0f918f9395fb7383cc1149963783fffc156b4b88ad41e6aff475",
+    "modules/losses/vqperceptual.py": "ec91a4fa66ff46715726dba37e4d0123c408b018f4cbd2f1b34efda51b79023e",
+    "modules/vector_quantizer.py": "54587a28fca69850b147e914e2f947bb640e078e28efb38f661ddee7e6b42687",
+    "run_scripts/create_imagenet100.py": "fb731c451e012a2b0dddb258634c806561ea22aaf55f1bb593f3a267c4604813",
+    "run_scripts/evaluate.sh": "4b6c909630a70eaa3cd92a6dae9cf88ec683f919e9a1f248a087bbbc97efe9ec",
+    "run_scripts/full_finetuning.sh": "d38c9bbd802a300296fbc836e1a3bb97854d184e2fc6e16052eef93862c0e12e",
+    "run_scripts/latent_distillation_pretrain.sh": "9c5cfbc22e6db02e339ca02c686c30f6d699c9c17fa11e066c83fe1b2841029a",
+    "utils/lr_sched.py": "ef0b89200268d08a30ccf03a1307ed6e2661770bb3ce0fd9e8f8943fa0bf880d",
+    "utils/misc.py": "76f83e1eced84df7301d7e089d0eaedc712c58e5c72d019cb60e6e2e78b4b742",
+    "utils/pos_embed.py": "e6ed75af89eb5cf41b360acbbde3fc066f369a83b6135eb5fd0310ee32769ee7"
+  },
+  "artifacts": [
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/cpu-prepare-2826204/dataset-manifest.json",
+      "bytes": 1620238,
+      "sha256": "9ced640551dc90940fdc06ba65dceff02d590ce08aaf8e5af4d34d9c25b6c2f5"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827031-imagenet100/results.json",
+      "bytes": 29318,
+      "sha256": "27271da1a34999bd0258a02a1f0b4d1a7267bb825bb6c3844187f26b7d47c8a5"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827031-imagenet100/token-usage.json",
+      "bytes": 9940171,
+      "sha256": "b1127f165bb827172b843b117280e79b35301cdca9791ab73479b078da19a7d5"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827031-imagenet100/source-inference.log",
+      "bytes": 5630341,
+      "sha256": "46602516ad9275c06d9619cba729da62a2da972849b5fc0d81f2ce06c25727f2"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/final-2827031-imagenet100/reconstruction_metrics.npz",
+      "bytes": 12701763,
+      "sha256": "558f0fec13c23c0a3a620be98108b300302ca5aee34a0e0b8984d9fb869fd8ad"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/results.json",
+      "bytes": 91189,
+      "sha256": "0e0d99287ddb4c21eb354dc8079a02a8dfcedf5a55e5708f66a4f7c0d7e75073"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/cpu-configuration-2826692/pip-freeze.txt",
+      "bytes": 2296,
+      "sha256": "c8ca1bddd93a712e78ffce278f4e13b199d60693683f02e0f481715939067f49"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261023_224128-cb7936-fd946c7-code/REPRODUCIBILITY_METADATA.json",
+      "bytes": 881,
+      "sha256": "8a0f9fc191661e7fe14bd02ac898570b139e6f1173110b5a1fb98dab39d58e0d"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/REPRODUCIBILITY_METADATA.json",
+      "bytes": 704,
+      "sha256": "761a142044a4d5cfcac5656841986a18eab48d40bc9077082c4673b8bd4d207a"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/a1/resolved.yaml",
+      "bytes": 3015,
+      "sha256": "e62fe7f422b62bf931f71a2dcf1db61831c2058d566273d896556e5b1c47f22f"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/a1/metric-protocol.json",
+      "bytes": 1054,
+      "sha256": "8372b57a5dcfe55c650647e630c7abe8420a0bcf5e8536d30360003ea6e7c66f"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/a1/reconcile.py",
+      "bytes": 16072,
+      "sha256": "3c512b92dad856ab96c911c590d5f17c6edd9722529decafe63e68b4d9b520fa"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/a1/reconcile.sbatch",
+      "bytes": 1057,
+      "sha256": "f6ffce5527a361b2cfbf9ce8328cda98ed3f8a4fc83ab0881ebbf028d8730c0b"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/a1/evidence/source-audit.md",
+      "bytes": 3730,
+      "sha256": "1a61f89f05c8b82f1a7fd2cbef22fb4f4022edd58bf077f42b452cd70c402082"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/reproduction/evidence/checkpoint-inference-coverage.json",
+      "bytes": 96684,
+      "sha256": "7ace32c1009bc9c8bb327d8fde6ab8ac8b5771580acb77a4ba07b0b3a2171abd"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/base_tokenizers/configs/vqgan.yaml",
+      "bytes": 352,
+      "sha256": "3a544b7f4335bc33ad9f184607ecb779fbc153a9217472cea27c7a12565dcf24"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/kolmogorov_tokenizers/configs/karl_vqgan.yaml",
+      "bytes": 276,
+      "sha256": "c84bd7cb9420ee6a94690eca5052d3295b2f90a7596cd9ab63cb129fb0b643c7"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/reproduction/evaluate_checkpoint.py",
+      "bytes": 8198,
+      "sha256": "9d5f78ee5c13e4b7f53b2e8403d382a8f7f29c132adac227072bdc40e0b7ef7a"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code/reproduction/checkpoint.py",
+      "bytes": 484,
+      "sha256": "503a2bcc32a8b9550fdf53e45323c5ad1ad99176c67640913ae3dc8b4472c810"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/.cache/karl-reproduce-20261023/torch/hub/checkpoints/alexnet-owt-7be5be79.pth",
+      "bytes": 244408911,
+      "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/envs/karl-reproduce-20261023/lib/python3.10/site-packages/lpips/weights/v0.1/alex.pth",
+      "bytes": 6009,
+      "sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/envs/karl-reproduce-20261023/lib/python3.10/site-packages/lpips/lpips.py",
+      "bytes": 10101,
+      "sha256": "780d09b907cb9b661e0ae28b2d163ddfba92f9e870d7feba34d4790cc6590658"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/envs/karl-reproduce-20261023/lib/python3.10/site-packages/lpips/pretrained_networks.py",
+      "bytes": 6507,
+      "sha256": "6a27f714c51796db466e86bebba6a617c1bfc4d566f3a1756497629c1248686e"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/envs/karl-reproduce-20261023/lib/python3.10/site-packages/torchmetrics/image/ssim.py",
+      "bytes": 17181,
+      "sha256": "758a0d9ae84f528801ba308bbde6faaf69fd8714b2b0ee6697c1cc8fbcb395dc"
+    },
+    {
+      "path": "/data/scratch-fast/kwen1/envs/karl-reproduce-20261023/lib/python3.10/site-packages/torchmetrics/functional/image/ssim.py",
+      "bytes": 21773,
+      "sha256": "84a820548900974f94a4ca1b01ab8ecef161e5e0764cecba06fe996bb9528e79"
+    }
+  ],
+  "base_tokenizer_state_sha256": "904ad13e62f406edea2aeac152c0b5ef965f5584fc224b9895b1487cfbc7cd14",
+  "imagenet_validation_archive_sha256": null,
+  "imagenet_validation_archive_sha256_null_reason": "Source archive not retained in prior receipts; exact5000 JPEG content hashes are verified instead.",
+  "inception_metric_weights_sha256": null,
+  "inception_metric_weights_sha256_null_reason": "Campaign Inception is not used in KARL count/LPIPS/SSIM/L1 reference; UNITE coordinator owns that lock.",
+  "derived_artifacts": [
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/REPRODUCIBILITY_METADATA.json",
+      "bytes": 704,
+      "sha256": "761a142044a4d5cfcac5656841986a18eab48d40bc9077082c4673b8bd4d207a"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/base-tokenizer-state.json",
+      "bytes": 43615,
+      "sha256": "9f401808795e3ad84fb9515ef457994c46aaac3eb3c5b717cd05112393a52d1c"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/input-image-hashes.json",
+      "bytes": 1195003,
+      "sha256": "ca1f765c6ce15b78ef8b6765aadaf045bd33b23b1318336469fe6d01fcf8c554"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/metric-protocol.json",
+      "bytes": 1054,
+      "sha256": "8372b57a5dcfe55c650647e630c7abe8420a0bcf5e8536d30360003ea6e7c66f"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/per-image-rows.json",
+      "bytes": 4280150,
+      "sha256": "93a221330092504ed8d7a8b33b595f23a1ed53ddd69d4ae42e1f00e5bd0c7390"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/pip-freeze.txt",
+      "bytes": 2449,
+      "sha256": "78487f5a88d3c2d71eb7e1aa5c8cd3a33a8bae47a20a3f01f7a431d068df9bcd"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/report.md",
+      "bytes": 10799,
+      "sha256": "0d78b4ca4b7f80403707da6d071721c54caf0abfc83fa64705dd73b044b91d05"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/resolved.yaml",
+      "bytes": 3015,
+      "sha256": "e62fe7f422b62bf931f71a2dcf1db61831c2058d566273d896556e5b1c47f22f"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/results.json",
+      "bytes": 58849,
+      "sha256": "5461b518fb7ebdb2bc4c6617faaccf60cb35bb87b780f52f8f5ec4a51a4800e0"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/source-audit.md",
+      "bytes": 3730,
+      "sha256": "1a61f89f05c8b82f1a7fd2cbef22fb4f4022edd58bf077f42b452cd70c402082"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/terminal-receipt.json",
+      "bytes": 1043,
+      "sha256": "66a4d6d3e0db766e3b7e35b0d8b9c1e73ffda43e5cae0dfe53b6a7251a60f885"
+    }
+  ],
+  "node_result": {
+    "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/results.json",
+    "sha256": "2adb948a998296c4ac92585b15e3c4c98af57814fdca3bf3615d2b8f9c490594"
+  },
+  "reporting_artifacts": [
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024/a1/closeout.py",
+      "sha256": "91fcb60cc24ab01a6c95fdd8c5d2df766359702b4edf312091c52011971343a1",
+      "bytes": 4604
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024/a1/write_report.py",
+      "sha256": "b120dff4a4ba58403463e2b1d8af34307b7b94c5b3bbf792c248298aa60fd68b",
+      "bytes": 14157
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024/a1/update_notebooks.py",
+      "sha256": "8587e105b9f68fd16aa3b12daa5bfa01c052951eab4780f40a803df0c57d2c75",
+      "bytes": 4457
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332/pip-freeze.txt",
+      "sha256": "78487f5a88d3c2d71eb7e1aa5c8cd3a33a8bae47a20a3f01f7a431d068df9bcd",
+      "bytes": 2449
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/report.md",
+      "sha256": "0d78b4ca4b7f80403707da6d071721c54caf0abfc83fa64705dd73b044b91d05",
+      "bytes": 10799
+    }
+  ]
+}

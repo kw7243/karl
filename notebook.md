@@ -2,13 +2,10 @@
 
 ## Current state
 
-- A1 KARL evidence reconciliation started on 2026-10-24 UTC under joint adaptive tokenization plan SHA25671728da427a6946146d12cc4bff4eddfbf308e6f79d15a86c39b993d64196f5b.
-- Sole A1 KARL submission, terminal and canonical-notebook writer: jat-a1-karl-20261024.
-- Completed released-checkpoint work remains closed and unchanged; this is a separately scoped reuse/CPU reduction.
-- New research branch: research/joint-adaptive-tokenization-20261024, based on b1d6fa2bd3e6e5691a632d5427656fe83ed87fca.
-- Source: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024.
-- Output: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1.
-- Planned work: byte/hash verification and CPU reduction of existing IN100 .05/.09 rows and raw L1 logs. No new inference or GPU allocation.
+- Bounded A1 KARL evidence reconciliation is complete; numerical gates pass, with coordinator acceptance required.
+- Report: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/report.md.
+- No owned active job remains. New GPU-hours: 0. The prior released-checkpoint assignment remains closed and unchanged.
+- No later campaign node was run. Canonical notebook ownership returns to the coordinator after the retained final handoff receipt.
 
 ## Source setup receipt: 2026-10-23
 
@@ -24,9 +21,11 @@
 
 ## Branch index
 
+- `research/joint-adaptive-tokenization-20261024`: bounded A1 KARL reconciliation; source and report pointers are in the 2026-10-24 completion entry.
+
 - `main`: canonical source plus this documentation-only setup commit; fork and upstream default branches remain `main`.
 - `upstream/main`: official source at setup revision `5c1a5693edf87228f988f363b2acdb7eb826a889`.
-- `research/karl-reproduce-20261023`: independent plain clone, sole experiment branch; ancestry begins at notebook-only main `9f6e199c7f85db1f6509f6a92c417c00ff81c0a2`. All experiment code and reports are indexed in `reproduction/evidence/run-index.json`; main receives notebook changes only.
+- `research/karl-reproduce-20261023`: independent plain clone, completed reference branch; ancestry begins at notebook-only main `9f6e199c7f85db1f6509f6a92c417c00ff81c0a2`. All experiment code and reports are indexed in `reproduction/evidence/run-index.json`; main receives notebook changes only.
 - No experiment code was merged. No force push was used.
 
 ## Storage and next step
@@ -146,3 +145,25 @@
 - Existing inference adapter fd946c7532bd6ac90d62dcb625f38bc45e6c6ec6 preserves official model source5c1a5693edf87228f988f363b2acdb7eb826a889.
 - The CPU reduction will retain seed0, distinguish raw L1 from source PNG metrics and document original-slot/batch1 behavior.
 - Only the coordinator can accept the A1 gate or continue the full campaign.
+
+## 2026-10-24: A1 KARL evidence reconciliation complete
+
+- A1 KARL numerical gates pass; full A1 acceptance is coordinator-owned. The prior released-checkpoint assignment remains closed. No later node was run.
+- Method: assigned IN100 quantized VQGAN EMA, candidate 256, original positional/mask path, native batch 1, requests 0.05/0.09, hard halt cutoff 0.75.
+- Mean tokens: 229.6596/152.4792; reduction 33.6064%, required >=20%.
+- Source LPIPS: 0.151994/0.206149; source SSIM: 0.473560/0.422696. Count and source-LPIPS tolerances pass.
+- Raw achieved L1: 0.073647/0.086967; request violations: 76.38%/32.22%. Requests do not guarantee achieved error. PNG L1 is separately reported.
+- Seed remains 0, not relabeled 20261023. Reachable-source proof finds no evaluation RNG draw after strict complete inference-state load; no paired-seed GPU test or bitwise determinism is claimed.
+- Executed-source hashes prove original slot-position preservation. Per-image masks were not saved and cannot be inferred from counts; batch>1 equality remains unverified and unused.
+- Source LPIPS is AlexNet v0.1, normalize=False on [0,1], distinct from pilot AlexNet [-1,1].
+- Checkpoint SHA256: a34b4b9ba1d61c5e58aecb96fd253bdc6d9c2e9156a6f13c42a8ae8f472512ae. Data manifest: 9ced640551dc90940fdc06ba65dceff02d590ce08aaf8e5af4d34d9c25b6c2f5. Metric protocol: 8372b57a5dcfe55c650647e630c7abe8420a0bcf5e8536d30360003ea6e7c66f. Config: e62fe7f422b62bf931f71a2dcf1db61831c2058d566273d896556e5b1c47f22f.
+- CPU job 2830332 completed 0:0; one CPU, no GPU. Reserved CPU-hours: 0.237222. New GPU/H100-hours: 0. Reused whole job 2827031: 2.351111 RTX2080Ti-hours across all eleven conditions; no H100 conversion.
+- Source/research branch: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024, research/joint-adaptive-tokenization-20261024, descends from completed b1d6fa2bd3e6e5691a632d5427656fe83ed87fca.
+- Scientific source commit: https://github.com/kw7243/karl/commit/9b6533d5f47751772db99c40cf85aad1be485b7c.
+- Full stage: /data/scratch-fast/kwen1/karl-a1-20261024-stages/20261024_061901-0e2f89-9b6533d-code.
+- Report: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/report.md. Results: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/results.json. Artifact lock: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/artifacts.json. Raw derived rows, image hashes, config, logs and terminal accounting: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/cpu-2830332.
+- Backup and ownership receipt: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-a1-20261024-results/A1/final-backup-receipt.json. No new repository, experimental-code merge, PR, force push, deletion, author/admin contact or ALIT work.
+- Next action: coordinator reviews KARL evidence and independently owned UNITE prerequisites. If saved active-slot lists are required, obtain a separate bounded inference authorization; no GPU job is submitted here.
+- Submission/terminal and canonical notebook ownership returns to the coordinator after final backup and terminal receipts are retained.
+
+- Reproducibility note: the full stage is the authoritative run snapshot. Inherited ignore rules omitted the nested pinned reference file third_party/karl/base_tokenizers/taming/models/vqgan.py from initial Git indexing; its staged bytes were verified against the official source, and the final backup includes it explicitly. No run source changed.

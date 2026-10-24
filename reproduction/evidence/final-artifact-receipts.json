@@ -1,0 +1,52 @@
+{
+  "aggregation_job": "2828154",
+  "stage": "/data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261024_011025-063f3e-2f03ae5-code",
+  "artifacts": [
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/results.json",
+      "bytes": 91189,
+      "sha256": "0e0d99287ddb4c21eb354dc8079a02a8dfcedf5a55e5708f66a4f7c0d7e75073"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/report.md",
+      "bytes": 10290,
+      "sha256": "94520613fd560dfc221597063cf00ee8a4a45d75ff512fdf6e575ea7ab667236"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/fixed-token-comparison.png",
+      "bytes": 247194,
+      "sha256": "88e91fa3f6d9a78ef19c786ae3df127ba5d60424b81020105875181dbe3993b0"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/fixed-token-comparison.pdf",
+      "bytes": 25042,
+      "sha256": "e2ee884719dfb49495d207e214767d0f9cb4b88df3c4507e1bfc86a56d428fb2"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/adaptive-comparison.png",
+      "bytes": 182025,
+      "sha256": "26d898929d57ed392696402eda71942938b93fa1f9afa38456174214a44aabd8"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/adaptive-comparison.pdf",
+      "bytes": 22532,
+      "sha256": "f0202fe6d959afea789e2418a029932c76c4cbb04ad6be264d4156b88996eb72"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/reconstruction-fid-comparison.png",
+      "bytes": 143727,
+      "sha256": "3a5987d9fef049335ff9466773d309e7301f0ef0333339d22e0dca2c49264ba6"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/reconstruction-fid-comparison.pdf",
+      "bytes": 20760,
+      "sha256": "32b7ab73cf5585bf0e046bb87aad94d0373457a7327395872f126da8b03f78b3"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/slurm-accounting.txt",
+      "bytes": 636,
+      "sha256": "80c724bb0b2312011e725efbaa391e0a748652f5cee32b5a7dee8c3a073439c0"
+    }
+  ],
+  "raw_outputs": "See run-index.json and aggregation results.json; all raw PNGs, arrays, token records and statistics remain on CSAIL."
+}

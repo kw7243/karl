@@ -8,3 +8,8 @@ models/
 
 # Un-ignore the specific .pth
 !base_tokenizers/taming/modules/autoencoder/lpips/vgg.pth
+# Retained paper inputs are hashed in the committed receipt and copied into stages.
+/reproduction/evidence/paper.pdf
+/reproduction/evidence/paper-v1.html
+/reproduction/evidence/paper-v1.txt
+/reproduction/evidence/paper-v1-compact.txt

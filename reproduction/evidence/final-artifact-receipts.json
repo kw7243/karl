@@ -46,6 +46,26 @@
       "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/slurm-accounting.txt",
       "bytes": 636,
       "sha256": "80c724bb0b2312011e725efbaa391e0a748652f5cee32b5a7dee8c3a073439c0"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/gt-cache-readback-2828173/results.json",
+      "bytes": 4988,
+      "sha256": "35b9ffa8cd5f26a0e57f55db76539507feec9687f6098babbcf9569c1fdcdfa3"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/gt-cache-readback-2828173/report.md",
+      "bytes": 1985,
+      "sha256": "d242a9a0f83e11cfee5c4bc25d1e49eaf83a5f9e1270f0833e01480258ef5c25"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/gt-cache-readback-2828173/paired-ground-truth-hashes.json",
+      "bytes": 685002,
+      "sha256": "a914735041681fc4a19d3d35998943f3da8750941c4f3d236d673e592652f99f"
+    },
+    {
+      "path": "/data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154.pip-freeze.txt",
+      "bytes": 2449,
+      "sha256": "78487f5a88d3c2d71eb7e1aa5c8cd3a33a8bae47a20a3f01f7a431d068df9bcd"
     }
   ],
   "raw_outputs": "See run-index.json and aggregation results.json; all raw PNGs, arrays, token records and statistics remain on CSAIL."

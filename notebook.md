@@ -1,6 +1,13 @@
-# Source setup notebook
+# KARL research notebook
 
 ## Current state
+
+- Released-checkpoint assignment completed on 2026-10-24 UTC; both full GPU jobs and CPU validation jobs are terminal.
+- Complete numerical agreement with the paper is not established. Exact actual/paper/difference tables and figures: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/.
+- All raw data, checkpoints, environments, complete stages and results remain on CSAIL. No active job remains owned by this assignment after the completion handoff.
+- Next action: resolve the documented IN1K high-budget protocol discrepancy before considering full training.
+
+## Source setup receipt: 2026-10-23
 
 - Date: 2026-10-23 UTC.
 - Role: Source prepared for a separate reproduction worker.
@@ -16,7 +23,8 @@
 
 - `main`: canonical source plus this documentation-only setup commit; fork and upstream default branches remain `main`.
 - `upstream/main`: official source at setup revision `5c1a5693edf87228f988f363b2acdb7eb826a889`.
-- No existing divergent branch was changed. No force push was used.
+- `research/karl-reproduce-20261023`: independent plain clone, sole experiment branch; ancestry begins at notebook-only main `9f6e199c7f85db1f6509f6a92c417c00ff81c0a2`. All experiment code and reports are indexed in `reproduction/evidence/run-index.json`; main receives notebook changes only.
+- No experiment code was merged. No force push was used.
 
 ## Storage and next step
 
@@ -102,3 +110,21 @@
 - GPU jobs 2827023 and 2827031 completed 0:0 on inspector-gadget.drl in 8,512 and 8,464 seconds. Both results.json files are MEASURED. Their full sample counts and raw metric/token completeness still require independent readback checks.
 - CPU aggregation job 2828148 stopped before scientific checks because Matplotlib was absent. Failed stage /data/scratch-fast/kwen1/karl-reproduce-20261023-stages/20261024_010826-bb8e7e-a6f91b6-code and karl-reproduction-results/aggregation-2828148 retain the operational failure report/log. No GPU result is classified as failed because of this dependency error.
 - Install pinned Matplotlib 3.7.5 for CPU figures, retain NumPy 1.24.1, record the post-install analysis lock and require pip check. Retry only the CPU aggregation from a fresh full stage. No GPU resubmission, checkpoint selection or evaluation-setting change.
+
+## 2026-10-24: released-checkpoint assignment completed
+
+- Outcome: both full released-checkpoint evaluations and CPU completeness checks completed. Several values differ from the paper; a complete numerical reproduction is not established. No arbitrary paper-success threshold or unsupported confidence interval is used.
+- ImageNet1K checkpoint job 2827023 completed 0:0 in 8,512 s; ImageNet100 checkpoint job 2827031 completed 0:0 in 8,464 s. Both ran on inspector-gadget.drl with one RTX2080Ti, 4 CPUs and 16 GiB each. Peak GPU allocated: 10,015,640,576 bytes each. Slurm peak host RSS: 10,698,184 / 10,778,596 KiB; separate process RSS values are retained in run results.
+- Each checkpoint has 5,000 images at all eleven settings, 55,000 token records and 5,000 finite observations per metric/condition. Fixed active-token counts are exact. Checkpoint hashes still match their original receipts. CPU job 2828154 completed 0:0 in 261 s and independently verified arrays, counts, filenames and reported means.
+- At 256 fixed tokens, IN1K actual L1 x10 / LPIPS / SSIM / DreamSim = .642737 / .148123 / .518763 / .129853; paper = .68 / .14 / .50 / .11. IN100 actual = .703254 / .138712 / .486422 / .107700; paper = .70 / .14 / .49 / .11. Full absolute differences for Tables 1 and 2 are retained in the consolidated report and results JSON.
+- Adaptive mean tokens for epsilon .03/.05/.09: IN1K 252.0904 / 225.5046 / 146.7592 vs paper 252.1 / 225.2 / 146.2; IN100 252.9702 / 229.6596 / 152.4792 vs 252.9 / 229.6 / 152.5.
+- Additional reconstruction FID at fixed 32/128/256: IN1K 33.574478 / 14.301705 / 11.215062; IN100 29.229618 / 13.894876 / 8.809673; paper Table 4 = 28.7 / 13.6 / 8.8. Table 4 does not identify its training-checkpoint association or a separate sample count. Both results are shown; the nearer result does not establish that association. No generation result is inferred.
+- GT cache readback job 2828173 completed 0:0 in 283 s. All 5,000 paired GT PNGs are byte-identical. Independent GPU GT feature means/covariances differ by at most 1.4489619e-06 / 3.4794372e-06; swapping the caches changes the twelve checked FIDs by at most 4.079987e-05. This measured numerical sensitivity is not statistical uncertainty.
+- Primary retained report/results: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/aggregation-2828154/report.md and results.json. GT readback: /data/vision/torralba/u/kwen1/image-tokenization-20261023/karl-reproduction-results/gt-cache-readback-2828173/report.md and results.json. PNG/PDF figures in the primary report directory: fixed-token-comparison, adaptive-comparison and reconstruction-fid-comparison. All three figure layouts were inspected through read-only previews; retained files stay on CSAIL.
+- Provenance index: reproduction/evidence/run-index.json. Artifact hashes: reproduction/evidence/final-artifact-receipts.json. Inference source fd946c7532bd6ac90d62dcb625f38bc45e6c6ec6; main aggregation source 2f03ae5; GT readback source b66abde. All model, base-tokenizer, training and released evaluator files remain identical to official source 5c1a5693edf87228f988f363b2acdb7eb826a889.
+- Strict checkpoint coverage: 833 EMA entries = 440 GAN training-loss entries + 2 obsolete unused tables + 391 strictly loaded current inference entries. Encoder, decoder, base tokenizer, quantizers and halting weights are complete. Installed-package metric compatibility and official-weight identities are retained with the CPU evidence.
+- Protocol limits remain explicit: repaired unfinished evaluator; requested epsilon 0 maps to .005; fixed masking is explicitly disabled; adaptive cutoff .75 differs from unused YAML .55; released standard-data cropping omits the demo resize and pads 136 small images; metric versions are not fully pinned by the paper. No post-result checkpoint/setting selection was used.
+- Operational failures remain separate: one pre-submission staging permission failure and CPU aggregation 2828148 missing Matplotlib. Both are preserved. Matplotlib 3.7.5 with NumPy 1.24.1 fixed the CPU plotting prerequisite; pip check passed. The initial unpinned metric dependency mismatch was resolved on CPU before GPU use.
+- Scope error: the unmentioned fork https://github.com/kw7243/dino was created at 2026-10-23T21:58:46Z. It and its plain local copy are preserved; no model or experiment used its code. The installed DreamSim implementation is used. No further repository was created.
+- Training recommendation: resolve the IN1K high-budget evaluation-protocol discrepancy before full training. Literal released scripts specify 200 epochs at 8 x 64 images, then 400 epochs at 8 x 18, accum_iter 1. Existing split counts imply 49,400 + 351,600 loader iterations for IN100 (126,689 files), or 500,400 + 3,558,800 for IN1K (1,281,167 files). Conditional wall/GPU-hour formulas and the appendix's 8 x 80 GB GPU reference are in the consolidated results; no unsupported absolute training-time estimate is inferred from evaluation timing.
+- Next action: scope a protocol-focused follow-up for the IN1K 256-token discrepancy. This bounded released-checkpoint assignment is complete. All owned jobs are terminal; active terminal and canonical notebook ownership return to Firstmate with the completion handoff.

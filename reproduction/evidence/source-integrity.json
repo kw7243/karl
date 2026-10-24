@@ -1,0 +1,49 @@
+{
+  "karl": {
+    "head": "e98c1b27ac1298c5ed15efc3ffa42e3639445b05",
+    "changed_paths_from_official_pin": [
+      "notebook.md"
+    ],
+    "core_released_source_unchanged": true
+  },
+  "karl-reproduce-20261023": {
+    "head": "b66abdeec2f92308fb3ebacf102da494aace7574",
+    "changed_paths_from_official_pin": [
+      ".gitignore",
+      "notebook.md",
+      "reproduction/aggregate.py",
+      "reproduction/aggregate.sbatch",
+      "reproduction/audit_inputs.py",
+      "reproduction/audit_inputs.sbatch",
+      "reproduction/checkpoint.py",
+      "reproduction/configuration.sbatch",
+      "reproduction/evaluate_checkpoint.py",
+      "reproduction/evidence/checkpoint-heads.json",
+      "reproduction/evidence/checkpoint-inference-coverage.json",
+      "reproduction/evidence/checkpoint-loading.json",
+      "reproduction/evidence/dataset-inventory.json",
+      "reproduction/evidence/dino-package-equivalence.json",
+      "reproduction/evidence/dino-source.json",
+      "reproduction/evidence/dreamsim-pypi-metadata.json",
+      "reproduction/evidence/final-artifact-receipts.json",
+      "reproduction/evidence/metric-compatibility.json",
+      "reproduction/evidence/paper-receipt.json",
+      "reproduction/evidence/run-index.json",
+      "reproduction/evidence/staging-compatibility.json",
+      "reproduction/final.sbatch",
+      "reproduction/finalize_run.py",
+      "reproduction/frozen-protocol.md",
+      "reproduction/metric_dependencies.py",
+      "reproduction/prepare.py",
+      "reproduction/prepare.sbatch",
+      "reproduction/probe_fid.py",
+      "reproduction/run_gpu.sh",
+      "reproduction/stage_and_run.sh",
+      "reproduction/targets.json",
+      "reproduction/validate_configuration.py",
+      "reproduction/verify_ground_truth.py",
+      "reproduction/verify_ground_truth.sbatch"
+    ],
+    "core_released_source_unchanged": true
+  }
+}
